@@ -1,0 +1,78 @@
+#app {
+	width: 50%;
+	max-height: 80%;
+	aspect-ratio: 4/6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: grid;
+	background-color: black;
+	padding: 1rem;
+	border-radius: 2rem;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2px;
+}
+@media screen and (orientation: portrait) {
+	#app {
+		width: 80%;
+		aspect-ratio: 1/1;
+	}
+	.button {
+		font-size: 1.8rem !important;
+	}
+}
+body,
+html {
+	height: 100%;
+	width: 100%;
+	background-color: hsl(0, 0%, 57%);
+	overflow: hidden;
+}
+
+* {
+	font-family: "Roboto", sans-serif;
+}
+#zeroButton {
+	grid-column: span 2 / auto;
+	aspect-ratio: 2;
+	border-radius: 5rem;
+}
+.button {
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: hsl(0, 0%, 19%);
+	color: white;
+	font-size: 3rem;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+.button:hover {
+	background-color: hsl(0, 0%, 15%);
+	font-size: 3.1rem;
+}
+.operator {
+	background-color: hsl(37, 95%, 49%);
+}
+.operator:hover {
+	background-color: hsl(37, 100%, 43%);
+}
+.moreOperators {
+	background-color: hsl(0, 0%, 62%);
+	color: black;
+}
+.moreOperators:hover {
+	background-color: hsl(0, 0%, 57%);
+}
+#out {
+	grid-column: span 4 / auto;
+	background-color: black;
+	aspect-ratio: 6;
+	color: #fff;
+	font-size: 3rem;
+	padding: 5px;
+	text-align: right;
+	word-break: break-all;
+}

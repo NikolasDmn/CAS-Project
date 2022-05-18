@@ -1,0 +1,175 @@
+:root {
+	--primary-color: hsl(284, 48%, 65%);
+	--background-color: hsl(0, 0%, 12%);
+	--sidebar-color: hsl(0, 0%, 15%);
+	--text-color: hsl(0, 0%, 100%);
+	--delete-color: hsl(0, 45%, 63%);
+	--note-hover-color: hsl(0, 0%, 15%);
+}
+html,
+body {
+	height: 100%;
+	width: 100%;
+	max-height: 100%;
+	margin: 0;
+	background: var(--background-color);
+}
+::-webkit-scrollbar {
+	width: 0; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+* {
+	color: var(--text-color);
+	font-family: sans-serif;
+}
+#app {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+#app > div {
+	height: 100%;
+	overflow: scroll;
+}
+#sidebar {
+	width: 18%;
+	max-width: 18%;
+	background-color: var(--sidebar-color);
+	border-radius: 0rem 1rem 1rem 0rem;
+	flex-shrink: 0;
+	overflow-y: scroll;
+	align-items: center;
+}
+
+#mainPage {
+	width: 100%;
+	margin: 0px;
+	padding: 1rem;
+}
+#mainPage > * {
+	overflow: scroll;
+}
+#addNoteButton {
+	background-color: var(--primary-color);
+	margin: 5%;
+	width: 90%;
+	align-self: center;
+	font-size: 2rem;
+	height: 5rem;
+	border-radius: 1rem;
+	border: none;
+	cursor: pointer;
+	position: relative;
+}
+#addNoteButton:hover {
+	font-size: 2.05rem;
+}
+.smallNote {
+	align-self: center;
+	margin: 0.2rem 3%;
+	width: 90%;
+	max-width: 90%;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	position: relative;
+}
+.smallNote:hover {
+	background-color: var(--note-hover-color);
+}
+.smallNote > * {
+	word-wrap: break-word;
+}
+.smallNoteTitle {
+	margin: 1rem 1rem 0.5rem 1rem;
+	font-weight: bold;
+}
+.smallNoteContent {
+	margin: 0.5rem 1rem;
+}
+.smallNoteDate {
+	text-align: right;
+	font-size: 0.8rem;
+	opacity: 0.9;
+	margin: 0rem 1rem 1rem 0rem;
+}
+.smallNoteOpen {
+	background-color: var(--note-hover-color) !important;
+}
+
+.smallNoteDelete {
+	position: absolute;
+	text-align: center;
+	justify-content: center;
+	background-color: var(--delete-color);
+	width: 25%;
+	top: 0%;
+	height: 100%;
+	right: 0%;
+	border-radius: 0.5rem 1rem 1rem 0.5rem;
+	cursor: pointer;
+}
+.smallNoteDelete > i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3rem;
+}
+
+.mainTextField {
+	width: 100%;
+	background-color: var(--background-color);
+	border: none;
+	outline: none;
+	display: flex;
+	flex-direction: column;
+}
+#titleTextField {
+	font-size: 5rem;
+}
+#contentTextField {
+	height: 85%;
+	flex-grow: 1;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	margin-top: 2em;
+	resize: none;
+}
+#themeChangeButton {
+	position: absolute;
+	background-color: var(--primary-color);
+	aspect-ratio: 1;
+	bottom: 1rem;
+	right: 1rem;
+	width: 5rem !important;
+	height: 5rem !important;
+	border-radius: 1rem;
+	cursor: pointer;
+	font-size: 3rem;
+	border: none;
+	cursor: pointer;
+}
+#themeChangeButton::after {
+	content: attr(data-theme);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 0.4rem;
+	color: white;
+	font-size: 0.9rem;
+	bottom: 6.1rem;
+	width: fit-content;
+	right: 0.2rem;
+	visibility: hidden;
+	padding: 0.3rem;
+	opacity: 0;
+	transition: opacity 0.3s, visibility 0.3s;
+}
+#themeChangeButton:hover::after {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.3s, visibility 0.3s;
+}

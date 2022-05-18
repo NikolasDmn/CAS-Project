@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/ef456103e8.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+
+</head>
+
+<body onload="generateToDo()">
+    <script src="./js/main.js"></script>
+    <div id="app">
+        <div>
+            <h1 id="header">To-Do List</h1>
+            <div id="inputTodoContainer">
+                <input type="text" id="inputToDo" placeholder="Enter a task">
+                <button id="addButton" onClick="onAddToDo()">Add</button>
+            </div>
+        </div>
+        <div id="todoContainer">
+        </div>
+    </div>
+</body>
+
+</html>

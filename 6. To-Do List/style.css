@@ -1,0 +1,205 @@
+:root {
+	--text-color: hsl(0, 0%, 100%);
+	--done-text-color: hsla(0, 0%, 60%, 0.5);
+	--background-color: #2b2b2b;
+	--delete-color: hsl(0, 45%, 63%);
+}
+html,
+body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: var(--background-color);
+}
+* {
+	color: var(--text-color);
+	font-family: sans-serif;
+}
+::-webkit-scrollbar {
+	width: 0; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
+}
+body {
+	background: url("https://picsum.photos/1920/1080?grayscale") no-repeat
+		center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+}
+#app {
+	width: 50%;
+	min-width: 50%;
+	height: 80%;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+	border-radius: 1rem;
+	position: relative;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;
+	text-align: center;
+	padding: 1rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+#app:before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0);
+	filter: blur(10px);
+	margin: -20px;
+}
+
+#todoContainer {
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+	border-radius: 1rem;
+	text-align: left;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	padding: 1rem;
+	overflow: scroll;
+	height: 100%;
+}
+#header {
+	font-size: 5rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+#inputToDoContainer {
+	width: 100%;
+}
+#inputToDo {
+	width: 90%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	outline: none;
+	border: none;
+	border-radius: 1rem;
+	font-size: 3rem;
+	margin-bottom: 2rem;
+	padding: 2px;
+	padding-left: 1rem;
+}
+
+.todoItem {
+	width: 100%;
+	height: fit-content;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	padding: 2px 5px;
+	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	margin-bottom: 0.25rem;
+}
+.todoItemText {
+	position: relative;
+	transition: 0.2s;
+	font-size: 1.5rem;
+	margin: 0srem 1rem;
+}
+.todoItem:hover {
+	font-size: 1.6rem;
+	background: rgba(0, 0, 0, 0.3);
+}
+.todoItemDone > .todoItemText {
+	color: var(--done-text-color);
+}
+@keyframes strike {
+	from {
+		text-decoration-color: transparent;
+	}
+	to {
+		text-decoration-color: auto;
+	}
+}
+.todoItem::after {
+	width: 0px;
+}
+.todoItemDone::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 2.5%;
+	height: 2px;
+	width: 95%;
+
+	background-color: var(--done-text-color);
+	transition: all 100s;
+}
+
+.smallNoteDelete {
+	position: absolute;
+	text-align: center;
+	justify-content: center;
+	background-color: var(--delete-color);
+	width: 3rem;
+	top: 0%;
+	height: 100%;
+	right: 0%;
+	border-radius: 0.25rem 0.5rem 0.5rem 0.25rem;
+	cursor: pointer;
+}
+.smallNoteDelete > i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1rem;
+}
+#addButton {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: none;
+	outline: none;
+	border-radius: 1rem;
+	aspect-ratio: 1.2;
+	font-size: 2rem;
+	margin-left: 1rem;
+	cursor: pointer;
+}
+#addButton:hover {
+	background-color: rgba(0, 0, 0, 0.7);
+	font-size: 2.1rem;
+}
+#inputTodoContainer {
+	display: flex;
+	flex-direction: row;
+}
+@media screen and (orientation: portrait) {
+	#app {
+		width: 80%;
+	}
+	#header {
+		font-size: 1.8rem;
+	}
+	#inputToDo {
+		font-size: 1.5rem;
+		border-radius: 0.5rem;
+	}
+	#addButton {
+		border-radius: 0.5rem;
+		font-size: 1rem;
+	}
+	#addButton:hover {
+		font-size: 1rem !important;
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"expo": {
+		"name": "Recipes",
+		"slug": "Recipes_from_the_API-TheMealDB",
+		"version": "1.0.1",
+		"orientation": "portrait",
+		"icon": "./app/assets/icon.png",
+		"splash": {
+			"image": "./app/assets/icon.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#716E6A"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./app/assets/icon.png",
+				"backgroundColor": "#716E6A"
+			},
+			"package": "com.nickdiam.recipes"
+		},
+		"web": {
+			"favicon": "./app/assets/icon.png"
+		}
+	}
+}

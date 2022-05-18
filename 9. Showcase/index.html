@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon.svg">
+    <title>Welcome!</title>
+    <style>
+        body {
+            background: url("./background.jpg") fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        * {
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            /* Remove scrollbar space */
+            background: transparent;
+            /* Optional: just make scrollbar invisible */
+        }
+
+        #app {
+            width: 50%;
+            min-width: 50%;
+            min-height: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 3rem 3rem rgba(0, 0, 0, 0.5);
+            border-radius: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background: inherit;
+            overflow: hidden;
+            text-align: center;
+            justify-items: center;
+            padding: 1rem;
+            display: grid;
+        }
+
+        #app:before {
+            content: "";
+            position: absolute;
+            background: inherit;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0);
+            filter: blur(10px);
+            margin: -20px;
+        }
+
+        #appContainer {
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+            border-radius: 1rem;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            padding: 1rem;
+            height: auto;
+            overflow: scroll;
+            grid-template-columns: 1fr 1fr;
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+        .appItems {
+            background-color: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            display: flex;
+            padding: 5px 0px;
+            flex-direction: column;
+        }
+
+        .appItems:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 1.4rem;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .appImage {
+            width: 5rem;
+            aspect-ratio: 1;
+        }
+
+        @media screen and (orientation:portrait) {
+            #appContainer {
+                grid-template-columns: 1fr;
+
+            }
+
+            #app {
+                height: 80%;
+                width: 80%
+            }
+
+            #app>h1 {
+                font-size: 1.5rem;
+            }
+
+            #app>p {
+                font-size: 0.9rem !important;
+            }
+
+            #cp {
+                font-size: 0.5rem !important;
+            }
+
+        }
+
+        #cp {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        #cp:hover::after {
+            content: "Open GitHub";
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            bottom: 2.5rem;
+            right: 3rem;
+            font-size: 0.8rem;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Welcome!</h1>
+        <p style="font-size: 1.5rem;">My name is Nikolas Diamantopoulos, below can be found all web applications created
+            for my CAS Project. Feel free to use them!</p>
+        <div id="appContainer">
+        </div>
+    </div>
+    <a id="cp" href="https://github.com/NikolasDmn" target="_blank">Nikolas Diamantopoulos</a>
+    <script>
+        const domain = "cas.ndiam.studio"
+        const apps = [{
+            sub: "5. Tic Tac Toe",
+            name: "Tic Tac Toe",
+            fav: "./favicons/ttt.svg",
+        }, {
+            sub: "6. To-Do List",
+            name: "To-Do List",
+            fav: "./favicons/todo.svg",
+        }, {
+            sub: "7. Note Taker",
+            name: "Note Taking App",
+            fav: "./favicons/notes.png",
+        }, {
+            sub: "8. Revised Calculator",
+            name: "Calculator",
+            fav: "./favicons/calc.svg",
+        }]
+        apps.forEach((app) => {
+            const appItem = document.createElement("a");
+            appItem.className = "appItems";
+            appItem.setAttribute("href", `http://${domain}/${app.sub}/index.html`);
+            appItem.innerHTML = `${app.name}<img class="appImage" src="${app.fav}" />`;
+            document.getElementById("appContainer").appendChild(appItem);
+        })
+    </script>
+</body>
+
+</html>
